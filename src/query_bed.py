@@ -35,8 +35,8 @@ def main() -> None:
         tabel.add_line(parse_line(line))
 
     for line in args.query:
-        bed_line = parse_line(line)
-        overlaps = tabel.get_chrom(bed_line.chrom)
+        chrom, start, end = line.split()
+        overlaps = tabel.get_chrom(chrom)
         if len(overlaps) > 0:
             for i in overlaps:
                 print_line(i, args.output)
