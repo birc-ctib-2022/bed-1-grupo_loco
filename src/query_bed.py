@@ -39,7 +39,7 @@ def main() -> None:
         overlaps = tabel.get_chrom(chrom)
         if len(overlaps) > 0:
             for i in overlaps:
-                print_line(i, args.output)
+                print_line(i, args.outfile)
 
         
 
