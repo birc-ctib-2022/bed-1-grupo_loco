@@ -28,9 +28,20 @@ def main() -> None:
 
     # With all the options handled, we just need to do the real work
     # FIXME: put your code here
-    for 
-        
+    
+    bed = Table
 
+    for y in args.bed:
+        bed.add_line(parse_line(y)) # here we add a line from a bed file, and parse the row, such that we have the different elements
+
+    for y in args.query:
+        chromosome = bed.get_chrom(y) # getting the chromosome such that i can check for overlap
+        chrom, start, end, name = y.split()
+        for j in chromosome:
+            if int(start) != chromosome[1] or chromosome[2] != int(end):
+                print None
+            else:
+                print_line(j, args.outfile)
 
 if __name__ == '__main__':
     main()
