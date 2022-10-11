@@ -28,6 +28,8 @@ def main() -> None:
 
     # With all the options handled, we just need to do the real work
     # FIXME: put your code here
+    for 
+        
 
 
 if __name__ == '__main__':
