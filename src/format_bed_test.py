@@ -3,6 +3,7 @@
 # names that start with test_
 from format_bed import main
 import filecmp
+import os
 #from difflib import Differ
 
 #exp_output = "data/output.bed"
@@ -10,8 +11,10 @@ import filecmp
 #output = main(input)
 
 def format_test():
-    with open('data/input.bed') as input, open('data/output.bed') as output:
-        expected = main(input)
-        assert filecmp.cmp(expected,output)
+    input = 'data/input.bed'
+    output = 'data/output.bed'
+    output_format = 'data/output_format.bed'
+    os.system(f"python src/format_bed.py {input}{output_format}")
+    assert filecmp.cmp(output_format,output)
 
 
