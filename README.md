@@ -66,8 +66,16 @@ When you have implemented the tool, answer the questions below, commit it to Git
 
 How does your method for extracting features work?
 
-What is the complexity of the algorithm, as a function of the size of the two input files? When you answer this, you need to know that you can get the list of chromosomse from a `query.Table` in constant time, but it does, of course, take longer to run through all the lines in it.
+We reformat our bed file, such that the four different lines in the file are distinguished. We do the same for our query file, such that we can loop through the query file and bed file. When looping through we match chromosomes from query to the bed table, such that we can extract the chromosome and all of its three other contents to our output file.
+
+What is the complexity of the algorithm, as a function of the size of the two input files? When you answer this, you need to know that you can get the list of chromosomes from a `query.Table` in constant time, but it does, of course, take longer to run through all the lines in it.
+
+We first parse the bed file into the table, thus running through bed file n times, hereafter we parse query m times, and then we run through each line of the query m times to detect overlaps. Thus resulting in O(n+m^2)
 
 Did you, at any point, exploit that our features are on single nucleotides and not larger regions?
 
+Yes, because we don't have to distinguish for anomalies in the bed line, and we can thus loop through it all and format as if it has a uniform pattern throughout.
+
 If you did, what would it take to handle general regions?
+
+You would have to know the specificity of the region of interest, and either predict or know the pattern of the regions.
